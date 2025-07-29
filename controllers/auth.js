@@ -68,7 +68,6 @@ export const Login = async (req, res, next) => {
 
 export const getUser = async (req, res, next) => {
   const { token } = req.body;
-  console.log("Received token:", token);
 
   try {
     if (!token) {
@@ -79,10 +78,8 @@ export const getUser = async (req, res, next) => {
     }
 
     const decoded = tokenVerify(token);
-    console.log("Decoded token:", decoded);
 
     const user = await User.findById(decoded.id);
-    console.log("User found:", user);
 
     if (!user) {
       return res.status(404).json({
