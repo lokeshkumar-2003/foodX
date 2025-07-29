@@ -23,6 +23,6 @@ app.use("/api", snacks);
 
 const port = process.env.PORT || 7000;
 
-app.listen(port, "0.0.0.0", () => {
+app.listen(port, () => {
   connectDB();
 });
